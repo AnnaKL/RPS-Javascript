@@ -53,4 +53,11 @@ describe('Game Factory', function(){
 		expect(GameFactory.humanVersusComputer()).toEqual('You won this round.')
 	});
 
+	it('allow computer to win a round', function(){
+		GameFactory.playerChooses('rock')
+		spyOn(Math, 'random').and.returnValue(0.15)
+		GameFactory.computerRandomChoice()
+		expect(GameFactory.humanVersusComputer()).toEqual('You lost this round.')
+	});
+
 });
