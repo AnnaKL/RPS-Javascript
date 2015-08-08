@@ -1,0 +1,1 @@
+angular.module("RPS", ['rps.controller','rps.factory']);
