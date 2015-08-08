@@ -21,6 +21,16 @@ describe('Game Controller', function(){
     expect(control.tab).toEqual(1);
   });
 
+  it('return true if tab is set to particular number', function(){
+    control.setTab(1);
+    expect(control.isSet(1)).toEqual(true);
+  });
+
+  it('return false if tab is not set to particular number', function(){
+    control.setTab(2);
+    expect(control.isSet(1)).toEqual(false);
+  });
+
 
 
 });
