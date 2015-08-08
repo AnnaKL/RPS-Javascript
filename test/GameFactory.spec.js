@@ -33,4 +33,9 @@ describe('Game Factory', function(){
 		expect(GameFactory.computerRandomChoice()).toEqual('rock')
 	});
 
+	it('allow computer to choose paper', function(){
+		spyOn(Math, 'random').and.returnValue(0.80)
+		expect(GameFactory.computerRandomChoice()).toEqual('scissors')
+	});
+
 });
