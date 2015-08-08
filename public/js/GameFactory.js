@@ -5,20 +5,48 @@ angular.module('rps.factory', [])
  	var computerChoice = '';
  	var choices = ['paper', 'rock', 'scissors']
  	var turns = 3;
+ 	var winTurns = 0;
+ 	var shapes = {
+    paper: ['rock'],
+    rock: ['scissors'],
+    scissors: ['paper']
+  }
 
 
     
   return {
   	playerChooses: function(choice) {
   		return playerChoice = choice;
-  	  },
-  	  computerRandomChoice: function() {
-        var randomNumber = Math.random();
-        if(turns !=0) {
-          if(randomNumber <= 0.33) {return computerChoice = choices[0]}
-          if (randomNumber <= 0.66) {return computerChoice = choices[1]}
-          if (randomNumber <= 1) {return computerChoice = choices[2]}
-        }
+  	},
+  	computerRandomChoice: function() {
+      var randomNumber = Math.random();
+      if(turns !=0) {
+        if(randomNumber <= 0.33) {return computerChoice = choices[0]}
+        if (randomNumber <= 0.66) {return computerChoice = choices[1]}
+        if (randomNumber <= 1) {return computerChoice = choices[2]}
       }
-  	};
+  	},
+	  humanVersusComputer: function() {
+	    if(turns !=0) {
+	      for(var key in shapes) {
+	        if(playerChoice == key) {
+	          if(computerChoice == shapes[key][0]) {
+	            winTurns +=1;
+	            turns -=1;
+	            return "You won this round."
+	          } else if (playerChoice == computerChoice) {
+	            turns -=1
+	            winTurns +=0.5;
+	            return "It's a tie."
+	          } else {
+	            turns -=1;
+	            return "You lost this round."
+	          }
+	        }
+	      }
+	    }
+	  }
+	}
+
+
  });
