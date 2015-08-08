@@ -60,4 +60,11 @@ describe('Game Factory', function(){
 		expect(GameFactory.humanVersusComputer()).toEqual('You lost this round.')
 	});
 
+	it('allow a tie between the human player and a computer', function(){
+		GameFactory.playerChooses('rock')
+		spyOn(Math, 'random').and.returnValue(0.60)
+		GameFactory.computerRandomChoice()
+		expect(GameFactory.humanVersusComputer()).toEqual("It's a tie.")
+	});
+
 });
