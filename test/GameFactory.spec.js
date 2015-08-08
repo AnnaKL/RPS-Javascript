@@ -26,7 +26,11 @@ describe('Game Factory', function(){
 	it('allow computer to choose paper', function(){
 		spyOn(Math, 'random').and.returnValue(0.15)
 		expect(GameFactory.computerRandomChoice()).toEqual('paper')
+	});
 
+	it('allow computer to choose paper', function(){
+		spyOn(Math, 'random').and.returnValue(0.60)
+		expect(GameFactory.computerRandomChoice()).toEqual('rock')
 	});
 
 });
