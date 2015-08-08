@@ -1,6 +1,7 @@
 describe('Game Factory', function(){
 	var GameFactory;
 	var playerChoice;
+	var computerChoice;
 	var choices;
 	var turns;
 	var winTurns;
@@ -13,8 +14,8 @@ describe('Game Factory', function(){
 	beforeEach(inject(function (_GameFactory_){
 		GameFactory = _GameFactory_;
 		choices = ['paper', 'rock', 'scissors'];
-		turns = 3;
-		winTurns = 0;
+		// turns = 3;
+		// winTurns = 0;
 		shapes = {
 		  paper: ['rock'],
 		  rock: ['scissors'],
@@ -66,5 +67,13 @@ describe('Game Factory', function(){
 		GameFactory.computerRandomChoice()
 		expect(GameFactory.humanVersusComputer()).toEqual("It's a tie.")
 	});
+
+  it('allow tactical computer to return scissors and firt choice was paper', function(){
+  	spyOn(Math, 'random').and.returnValue(0.15)
+  	GameFactory.playerChooses('rock')
+  	GameFactory.computerRandomChoice()
+  	GameFactory.playerChooses('rock')
+  	expect(GameFactory.tacticalComputerChoice()).toEqual('scissors');
+  });
 
 });

@@ -4,6 +4,12 @@ angular.module('rps.factory', [])
  	var playerChoice = '';
  	var computerChoice = '';
  	var choices = ['paper', 'rock', 'scissors']
+ 	var turns = function () {
+        return 3;
+    };
+  var winTurns = function () {
+        return 0;
+    };
  	var turns = 3;
  	var winTurns = 0;
  	var shapes = {
@@ -11,6 +17,11 @@ angular.module('rps.factory', [])
     rock: ['scissors'],
     scissors: ['paper']
   }
+  var tacticalShapes = {
+    paper: ['scissors'],
+    rock: ['paper'],
+    scissors: ['rock']
+   }
 
 
     
@@ -26,6 +37,15 @@ angular.module('rps.factory', [])
         if (randomNumber <= 1) {return computerChoice = choices[2]}
       }
   	},
+	  tacticalComputerChoice: function() {
+      for(var item in tacticalShapes) {
+        if(computerChoice === item) {
+          return computerChoice = tacticalShapes[item][0]
+        } else if (computerChoice === ''){ 
+          return this.computerRandomChoice();
+        }
+      }
+    },
 	  humanVersusComputer: function() {
 	    if(turns !=0) {
 	      for(var key in shapes) {
@@ -45,8 +65,16 @@ angular.module('rps.factory', [])
 	        }
 	      }
 	    }
+	  },
+	  winner: function() {
+	    if(turns === 0) {
+	      if(winTurns > 1.5) {return "Congratulations, you've won the game."}
+	      if(winTurns === 1.5) {return "Game results: It's a tie"}
+	      if(winTurns < 1.5) {return "Ops, you've lost the game."}
+	    }
+	  return null;
 	  }
-	}
+	};
 
 
  });
