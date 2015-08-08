@@ -6,6 +6,7 @@ describe('Game Factory', function(){
 	var turns;
 	var winTurns;
 	var shapes;
+	var tacticalShapes
 
 	beforeEach(function(){
 		module('rps.factory')
@@ -14,12 +15,15 @@ describe('Game Factory', function(){
 	beforeEach(inject(function (_GameFactory_){
 		GameFactory = _GameFactory_;
 		choices = ['paper', 'rock', 'scissors'];
-		// turns = 3;
-		// winTurns = 0;
 		shapes = {
 		  paper: ['rock'],
 		  rock: ['scissors'],
 		  scissors: ['paper']
+    }
+    tacticalShapes = {
+		  paper: ['scissors'],
+		  rock: ['paper'],
+		  scissors: ['rock']
     }
 
 	}))
@@ -74,6 +78,14 @@ describe('Game Factory', function(){
   	GameFactory.computerRandomChoice()
   	GameFactory.playerChooses('rock')
   	expect(GameFactory.tacticalComputerChoice()).toEqual('scissors');
+  });
+
+  it('allow tactical computer to return paper and firt choice was rock', function(){
+  	spyOn(Math, 'random').and.returnValue(0.60)
+  	GameFactory.playerChooses('rock')
+  	GameFactory.computerRandomChoice()
+  	GameFactory.playerChooses('rock')
+  	expect(GameFactory.tacticalComputerChoice()).toEqual('paper');
   });
 
 });
