@@ -1,5 +1,6 @@
 describe('Game Factory', function(){
 	var GameFactory
+	var playerChoice
 
 	beforeEach(function(){
 		module('rps.factory')
@@ -11,6 +12,10 @@ describe('Game Factory', function(){
 
 	it('can get an instance of the factory', function(){
 		expect(GameFactory).toBeDefined();
+	});
+
+	it('allow player to choose a shape', function() {
+		expect(GameFactory.playerChooses('rock')).toEqual('rock');
 	});
 
 });
