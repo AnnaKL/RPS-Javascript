@@ -88,4 +88,12 @@ describe('Game Factory', function(){
   	expect(GameFactory.tacticalComputerChoice()).toEqual('paper');
   });
 
+  it('allow tactical computer to return rock and firt choice was scissors', function(){
+  	spyOn(Math, 'random').and.returnValue(0.80)
+  	GameFactory.playerChooses('rock')
+  	GameFactory.computerRandomChoice()
+  	GameFactory.playerChooses('rock')
+  	expect(GameFactory.tacticalComputerChoice()).toEqual('rock');
+  });
+
 });
