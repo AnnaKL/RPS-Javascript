@@ -4,12 +4,6 @@ angular.module('rps.factory', [])
  	var playerChoice = '';
  	var computerChoice = '';
  	var choices = ['paper', 'rock', 'scissors']
- 	var turns = function () {
-        return 3;
-    };
-  var winTurns = function () {
-        return 0;
-    };
  	var turns = 3;
  	var winTurns = 0;
  	var shapes = {
@@ -72,7 +66,6 @@ angular.module('rps.factory', [])
 	      if(winTurns === 1.5) {return "Game results: It's a tie"}
 	      if(winTurns < 1.5) {return "Ops, you've lost the game."}
 	    }
-	  return null;
 	  }
 	};
 

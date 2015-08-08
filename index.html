@@ -13,6 +13,34 @@
     <script src="public/js/GameFactory.js"></script>
   </head>
   <body >
-      <h1> Rock, paper, scissors </h1>
+    <h1> Rock, paper, scissors </h1>
+      <section ng-controller="GameController as ctrl">
+      <button class="btn" ng-click="ctrl.setTab(1)">Play with Computer</button>
+      <button class="btn" ng-click="ctrl.setTab(2)">Play with Tactical Computer</button>
+      <div ng-show="ctrl.isSet(1)">
+        <form>
+          <input type="text" ng-model="item" placeholder="Choose you shape">
+          <button class="clear" ng-touch="item=null" ng-click="ctrl.computerVsPlayerResults(item)">Play</button>
+          Computer choice is: {{ctrl.computerChoice}}<br>
+          Frist round:  {{ctrl.messages[0]}}<br>
+          Second round: {{ctrl.messages[1]}}<br>
+          Third round:  {{ctrl.messages[2]}}<br><br>
+          {{ctrl.gameWinner}}<br>
+          <button class="btn" ng-click="ctrl.resetGame()">Play again</button>
+        </form>
+      </div>
+      <div ng-show="ctrl.isSet(2)">
+        <form >
+          <input type="text" ng-model="item" placeholder="Choose you shape">
+          <button class="btn" ng-click="ctrl.tacticalComputerVsPlayerResults(item)">Play</button>
+          Computer choice is: {{ctrl.computerChoice}}<br>
+          Frist round:  {{ctrl.messages[0]}}<br>
+          Second round: {{ctrl.messages[1]}}<br>
+          Third round:  {{ctrl.messages[2]}}<br><br>
+          {{ctrl.gameWinner}}<br>
+          <button class="btn" ng-click="ctrl.resetGame()">Play again</button>
+        </form>
+      </div>
+    </section>
   </body>
 </html>
