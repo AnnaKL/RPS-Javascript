@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/AnnaKL/RPS-Javascript.svg?branch=master)](https://travis-ci.org/AnnaKL/RPS-Javascript)  
+
 ## Extended Rock Paper Scissors Game - Javascript
 
 Rock Paper Scissors (plus spock and lizard) game in Javascript (AngularJS framework).
