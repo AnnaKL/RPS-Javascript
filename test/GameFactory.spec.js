@@ -150,4 +150,10 @@ describe('Game Factory', function(){
   	expect(GameFactory.playersWinner()).toEqual("Congratulations, Player 1 won the game.")
   });
 
+  it('allow human player 2 to win the game', function(){
+  	spyOn(GameFactory, 'turns').and.returnValue(0)
+  	spyOn(GameFactory, 'winTurns').and.returnValue(1)
+  	expect(GameFactory.playersWinner()).toEqual("Congratulations, Player 2 won the game.")
+  });
+
 });
