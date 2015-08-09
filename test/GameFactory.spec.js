@@ -130,7 +130,12 @@ describe('Game Factory', function(){
   	GameFactory.playerChooses('rock');
   	GameFactory.playerChooses('scissors');
   	expect(GameFactory.humanVersusHuman('rock', 'scissors')).toEqual("Player 1 won this round.")
+  });
 
+  it('allow player 1 to win a round', function(){
+  	GameFactory.playerChooses('scissors');
+  	GameFactory.playerChooses('rock');
+  	expect(GameFactory.humanVersusHuman('scissors', 'rock')).toEqual("Player 2 won this round.")
   });
 
 });
