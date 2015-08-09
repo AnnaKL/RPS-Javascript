@@ -1,0 +1,39 @@
+h1 {
+	font-size: 5em;
+	position: relative;
+    top: 40%;
+    left: 22%
+}
+
+#img {
+	position: relative;
+    top: 40%;
+    left: 31%
+}
+
+.jumbotron {
+    width: 60% !important;
+    position: relative;
+    margin-top: 3% !important;
+    left: 16% !important;
+}
+.button {
+	position: relative;
+    top: 40%;
+    left: 20%
+}
+
+.game {
+    position: relative;
+    margin-top: 5% !important;
+    left: 21%
+}
+
+#play-again {
+   position: relative;
+   left: 10% 
+}
+
+#form {
+    font-size: 1em;
+}

@@ -2,8 +2,9 @@
 <html lang="en" ng-app='RPS'>
   <head>
     <meta charset="utf-8">
-    <title>Github user search</title>
+    <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+     <link rel="stylesheet" href="./public/css/style.css">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -13,46 +14,55 @@
     <script src="public/js/GameFactory.js"></script>
   </head>
   <body >
-    <h1> Rock, paper, scissors </h1>
+    <h1> Rock, paper, scissors ... </h1>
+    <img id="img" src="public/img/rps.png"/>
+      <div class ='container'>
+      <div class='jumbotron'>
       <section ng-controller="GameController as ctrl">
-      <button class="btn" ng-click="ctrl.setTab(1)">Play with Computer</button>
-      <button class="btn" ng-click="ctrl.setTab(2)">Play with Tactical Computer</button>
-      <div ng-show="ctrl.isSet(1)">
+      <div class="button"> 
+      <button class="btn btn-info" ng-click="ctrl.setTab(1)">Play with Computer</button>
+      <button  class="btn btn-info" ng-click="ctrl.setTab(2)">Play with Tactical Computer</button>
+      </div>
+      <div class="game" ng-show="ctrl.isSet(1)">
         <form>
-          <select type="text" ng-model="item" class="input-large input-large-altered">
+          <select type="text" ng-model="item" class="btn btn-default btn-large dropdown-toggle">
             <option value="rock">rock</option>
             <option value="paper">paper</option>
             <option value="scissors">scissors</option>
             <option value="lizard">lizard</option>
             <option value="spock">spock</option>
           </select>
-          <button class="clear" ng-click="ctrl.computerVsPlayerResults(item)">Play</button>
-            Computer choice is: {{ctrl.computerChoice}}<br>
-            Frist round:  {{ctrl.messages[0]}}<br>
-            Second round: {{ctrl.messages[1]}}<br>
-            Third round:  {{ctrl.messages[2]}}<br><br>
-            {{ctrl.gameWinner}}<br>
-          <button class="btn" ng-click="ctrl.resetGame()">Play again</button>
+          <button class="btn btn-info" ng-click="ctrl.computerVsPlayerResults(item)">Play</button>
+            <button id="play-again" class="btn btn-info" ng-click="ctrl.resetGame()">Start New Game</button><br>
+            <h4>Your choice: {{item}}</h4>
+            <h4>Computer choice: {{ctrl.computerChoice}}</h4>
+            <h5>{{ctrl.messages[0]}}</h5>
+            <h5>{{ctrl.messages[1]}}</h5>
+            <h5>{{ctrl.messages[2]}}</h5>
+            <h3>{{ctrl.gameWinner}}</h3>
         </form>
       </div>
-      <div ng-show="ctrl.isSet(2)">
+      <div class="game" ng-show="ctrl.isSet(2)">
         <form >
-          <select type="text" ng-model="item" class="input-large input-large-altered">
+          <select type="text" ng-model="item" class="btn btn-default dropdown-toggle">
             <option value="rock">rock</option>
             <option value="paper">paper</option>
             <option value="scissors">scissors</option>
             <option value="lizard">lizard</option>
             <option value="spock">spock</option>
           </select>
-          <button class="btn" ng-click="ctrl.tacticalComputerVsPlayerResults(item)">Play</button>
-            Computer choice is: {{ctrl.computerChoice}}<br>
-            Frist round:  {{ctrl.messages[0]}}<br>
-            Second round: {{ctrl.messages[1]}}<br>
-            Third round:  {{ctrl.messages[2]}}<br><br>
-            {{ctrl.gameWinner}}<br>
-          <button class="btn" ng-click="ctrl.resetGame()">Play again</button>
+          <button class="btn btn-info" ng-click="ctrl.tacticalComputerVsPlayerResults(item)">Play</button>
+           <button id="play-again" class="btn btn-info" ng-click="ctrl.resetGame()">Start New Game</button><br>
+            <h4>Your choice: {{item}}</h4>
+            <h4>Computer choice: {{ctrl.computerChoice}}</h4>
+            <h5>{{ctrl.messages[0]}}</h5>
+            <h5>{{ctrl.messages[1]}}</h5>
+            <h5>{{ctrl.messages[2]}}</h5>
+            <h3>{{ctrl.gameWinner}}</h3>
         </form>
       </div>
     </section>
+    </div>
+    </div>
   </body>
 </html>
