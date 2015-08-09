@@ -22,6 +22,7 @@
           <div class="button"> 
             <button class="btn btn-info" ng-click="ctrl.setTab(1)">Play with Computer</button>
             <button  class="btn btn-info" ng-click="ctrl.setTab(2)">Play with Tactical Computer</button>
+            <button  class="btn btn-info" ng-click="ctrl.setTab(3)">Play with Other Player</button>
           </div>
           <div class="game" ng-show="ctrl.isSet(1)">
               <form>
@@ -60,7 +61,31 @@
                 <h5>{{ctrl.messages[2]}}</h5>
                 <h3 id="winner">{{ctrl.gameWinner}}</h3>
               </form>
-          </div>
+              </div>
+              <div class="game" ng-show="ctrl.isSet(3)">
+              <form>
+                <select type="text" ng-model="item1" class="btn btn-default btn-large dropdown-toggle">
+                  <option value="rock">rock</option>
+                  <option value="paper">paper</option>
+                  <option value="scissors">scissors</option>
+                  <option value="lizard">lizard</option>
+                  <option value="spock">spock</option>
+                </select>
+                  <select type="text" ng-model="item2" class="btn btn-default btn-large dropdown-toggle">
+                  <option value="rock">rock</option>
+                  <option value="paper">paper</option>
+                  <option value="scissors">scissors</option>
+                  <option value="lizard">lizard</option>
+                  <option value="spock">spock</option>
+                </select>
+                <button class="btn btn-info" ng-click="ctrl.playerVsPlayerResults(item1, item2)">Play</button>
+                <button id="play-again" class="btn btn-info" ng-click="ctrl.resetGame()">Start New Game</button>
+                  <h5>{{ctrl.messages[0]}}</h5>
+                  <h5>{{ctrl.messages[1]}}</h5>
+                  <h5>{{ctrl.messages[2]}}</h5>
+                  <h3 id="winner">{{ctrl.gameWinner}}</h3>
+              </form>
+            </div>
         </section>
       </div>
     </div>

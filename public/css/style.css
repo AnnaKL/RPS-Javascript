@@ -20,21 +20,21 @@ h1 {
 .button {
 	position: relative;
   top: 40%;
-  left: 20%
+ 
 }
 
 .game {
   position: relative;
   margin-top: 5% !important;
-  left: 21%
+  left: 15%
 }
 
 #play-again {
   position: relative;
-  left: 10% 
+  left: 7% 
 }
 
 #winner {
   position: relative;
-  right: 5% !important;
+  right: 8% !important;
 }

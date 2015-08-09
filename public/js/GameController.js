@@ -23,6 +23,14 @@ angular.module('rps.controller', [])
 
 	};
 
+	self.playerVsPlayerResults = function(item1, item2) {
+	  GameFactory.playerChooses(item1);
+	  GameFactory.playerChooses(item2);
+	  self.messages.push(GameFactory.humanVersusHuman(item1, item2));
+	  self.gameWinner = GameFactory.playersWinner();
+
+	};
+
 	self.resetGame = function() {
 	    window.location.reload()
 	}

@@ -68,6 +68,26 @@ angular.module('rps.factory', [])
 	      }
 	    }
 	  },
+	  humanVersusHuman: function(choice1, choice2) {
+	  	if(turns !=0) {
+	  		for(var key in shapes) {
+	  		if(choice1 ==key) {
+	  			if(choice2 == shapes[key][0] || choice2 == shapes[key][1]) {
+	  				winTurns +=1;
+	          turns -=1;
+	          return "Player 1 won this round."
+	  	       } else if (choice1 == choice2) {
+	            turns -=1
+	            winTurns +=0.5;
+	            return "It's a tie."
+	          } else {
+	            turns -=1;
+	            return "Player 2 won this round."
+	          }
+	        }
+	      }
+	    }
+	  },
 	  turns: function() {
 	  	return turns;
 	  },
@@ -79,6 +99,13 @@ angular.module('rps.factory', [])
 	      if(this.winTurns() > 1.5) {return "Congratulations, you've won the game."}
 	      if(this.winTurns() === 1.5) {return "Game results: It's a tie."}
 	      if(this.winTurns() < 1.5) {return "Ops, you've lost the game."}
+	    }
+	  },
+	  playersWinner: function() {
+	    if(this.turns() === 0) {
+	      if(this.winTurns() > 1.5) {return "Congratulations, Player 1 won the game."}
+	      if(this.winTurns() === 1.5) {return "Game results: It's a tie."}
+	      if(this.winTurns() < 1.5) {return "Congratulations, Player 2 won the game."}
 	    }
 	  }
 	};
