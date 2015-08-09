@@ -12,16 +12,20 @@ describe('Game Factory', function(){
 
 	beforeEach(inject(function (_GameFactory_){
 		GameFactory = _GameFactory_;
-		choices = ['paper', 'rock', 'scissors'];
+		choices = ['paper', 'rock', 'scissors', 'lizard', 'spock'];
 		shapes = {
-		  paper: ['rock'],
-		  rock: ['scissors'],
-		  scissors: ['paper']
+		  paper: ['rock', 'spock'],
+			rock: ['scissors', 'lizard'],
+			scissors: ['paper', 'lizard'],
+			spock: ['rock', 'scissors'],
+			lizard: ['paper', 'spock']
     }
     tacticalShapes = {
-		  paper: ['scissors'],
-		  rock: ['paper'],
-		  scissors: ['rock']
+		 	paper: ['scissors', 'lizard'],
+			rock: ['paper', 'spock'],
+			scissors: ['rock', 'spock'],
+			spock: ['paper', 'lizard'],
+			lizard: ['rock', 'scissors']
     }
 
 	}))
@@ -35,43 +39,43 @@ describe('Game Factory', function(){
 	});
 
 	it('allow computer to choose paper', function(){
-		spyOn(Math, 'random').and.returnValue(0.15)
+		spyOn(Math, 'random').and.returnValue(0.2)
 		expect(GameFactory.computerRandomChoice()).toEqual('paper')
 	});
 
 	it('allow computer to choose paper', function(){
-		spyOn(Math, 'random').and.returnValue(0.60)
+		spyOn(Math, 'random').and.returnValue(0.4)
 		expect(GameFactory.computerRandomChoice()).toEqual('rock')
 	});
 
 	it('allow computer to choose paper', function(){
-		spyOn(Math, 'random').and.returnValue(0.80)
+		spyOn(Math, 'random').and.returnValue(0.6)
 		expect(GameFactory.computerRandomChoice()).toEqual('scissors')
 	});
 
 	it('allow human player to win a round', function(){
 		GameFactory.playerChooses('rock')
-		spyOn(Math, 'random').and.returnValue(0.80)
+		spyOn(Math, 'random').and.returnValue(0.6)
 		GameFactory.computerRandomChoice()
 		expect(GameFactory.humanVersusComputer()).toEqual('You won this round.')
 	});
 
 	it('allow computer to win a round', function(){
 		GameFactory.playerChooses('rock')
-		spyOn(Math, 'random').and.returnValue(0.15)
+		spyOn(Math, 'random').and.returnValue(0.2)
 		GameFactory.computerRandomChoice()
 		expect(GameFactory.humanVersusComputer()).toEqual('You lost this round.')
 	});
 
 	it('allow a tie between the human player and a computer', function(){
 		GameFactory.playerChooses('rock')
-		spyOn(Math, 'random').and.returnValue(0.60)
+		spyOn(Math, 'random').and.returnValue(0.4)
 		GameFactory.computerRandomChoice()
 		expect(GameFactory.humanVersusComputer()).toEqual("It's a tie.")
 	});
 
   it('allow tactical computer to return scissors and firt choice was paper', function(){
-  	spyOn(Math, 'random').and.returnValue(0.15)
+  	spyOn(Math, 'random').and.returnValue(0.2)
   	GameFactory.playerChooses('rock')
   	GameFactory.computerRandomChoice()
   	GameFactory.playerChooses('rock')
@@ -79,19 +83,19 @@ describe('Game Factory', function(){
   });
 
   it('allow tactical computer to return paper and firt choice was rock', function(){
-  	spyOn(Math, 'random').and.returnValue(0.60)
+  	spyOn(Math, 'random').and.returnValue(0.4)
   	GameFactory.playerChooses('rock')
   	GameFactory.computerRandomChoice()
   	GameFactory.playerChooses('rock')
   	expect(GameFactory.tacticalComputerChoice()).toEqual('paper');
   });
 
-  it('allow tactical computer to return rock and firt choice was scissors', function(){
-  	spyOn(Math, 'random').and.returnValue(0.80)
+  it('allow tactical computer to return spock and firt choice was scissors', function(){
+  	spyOn(Math, 'random').and.returnValue(0.6)
   	GameFactory.playerChooses('rock')
   	GameFactory.computerRandomChoice()
   	GameFactory.playerChooses('rock')
-  	expect(GameFactory.tacticalComputerChoice()).toEqual('rock');
+  	expect(GameFactory.tacticalComputerChoice()).toEqual('spock');
   });
 
   it('allow human player to win the game', function(){
