@@ -4,65 +4,65 @@
     <meta charset="utf-8">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
-     <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="./public/css/style.css">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
-     <script src="public/js/app.js"></script>
+    <script src="public/js/app.js"></script>
     <script src="public/js/GameController.js"></script>
     <script src="public/js/GameFactory.js"></script>
   </head>
   <body >
     <h1> Rock, paper, scissors ... </h1>
     <img id="img" src="public/img/rps.png"/>
-      <div class ='container'>
+    <div class ='container'>
       <div class='jumbotron'>
-      <section ng-controller="GameController as ctrl">
-      <div class="button"> 
-      <button class="btn btn-info" ng-click="ctrl.setTab(1)">Play with Computer</button>
-      <button  class="btn btn-info" ng-click="ctrl.setTab(2)">Play with Tactical Computer</button>
+        <section ng-controller="GameController as ctrl">
+          <div class="button"> 
+            <button class="btn btn-info" ng-click="ctrl.setTab(1)">Play with Computer</button>
+            <button  class="btn btn-info" ng-click="ctrl.setTab(2)">Play with Tactical Computer</button>
+          </div>
+          <div class="game" ng-show="ctrl.isSet(1)">
+              <form>
+                <select type="text" ng-model="item" class="btn btn-default btn-large dropdown-toggle">
+                  <option value="rock">rock</option>
+                  <option value="paper">paper</option>
+                  <option value="scissors">scissors</option>
+                  <option value="lizard">lizard</option>
+                  <option value="spock">spock</option>
+                </select>
+                <button class="btn btn-info" ng-click="ctrl.computerVsPlayerResults(item)">Play</button>
+                <button id="play-again" class="btn btn-info" ng-click="ctrl.resetGame()">Start New Game</button>
+                <h4>Your choice: {{item}}</h4>
+                <h4>Computer choice: {{ctrl.computerChoice}}</h4>
+                <h5>{{ctrl.messages[0]}}</h5>
+                <h5>{{ctrl.messages[1]}}</h5>
+                <h5>{{ctrl.messages[2]}}</h5>
+                <h3 id="winner">{{ctrl.gameWinner}}</h3>
+              </form>
+            </div>
+            <div class="game" ng-show="ctrl.isSet(2)">
+              <form >
+                <select type="text" ng-model="item" class="btn btn-default dropdown-toggle">
+                  <option value="rock">rock</option>
+                  <option value="paper">paper</option>
+                  <option value="scissors">scissors</option>
+                  <option value="lizard">lizard</option>
+                  <option value="spock">spock</option>
+                </select>
+                <button class="btn btn-info" ng-click="ctrl.tacticalComputerVsPlayerResults(item)">Play</button>
+                <button id="play-again" class="btn btn-info" ng-click="ctrl.resetGame()">Start New Game</button>
+                <h4>Your choice: {{item}}</h4>
+                <h4>Computer choice: {{ctrl.computerChoice}}</h4>
+                <h5>{{ctrl.messages[0]}}</h5>
+                <h5>{{ctrl.messages[1]}}</h5>
+                <h5>{{ctrl.messages[2]}}</h5>
+                <h3 id="winner">{{ctrl.gameWinner}}</h3>
+              </form>
+          </div>
+        </section>
       </div>
-      <div class="game" ng-show="ctrl.isSet(1)">
-        <form>
-          <select type="text" ng-model="item" class="btn btn-default btn-large dropdown-toggle">
-            <option value="rock">rock</option>
-            <option value="paper">paper</option>
-            <option value="scissors">scissors</option>
-            <option value="lizard">lizard</option>
-            <option value="spock">spock</option>
-          </select>
-          <button class="btn btn-info" ng-click="ctrl.computerVsPlayerResults(item)">Play</button>
-            <button id="play-again" class="btn btn-info" ng-click="ctrl.resetGame()">Start New Game</button><br>
-            <h4>Your choice: {{item}}</h4>
-            <h4>Computer choice: {{ctrl.computerChoice}}</h4>
-            <h5>{{ctrl.messages[0]}}</h5>
-            <h5>{{ctrl.messages[1]}}</h5>
-            <h5>{{ctrl.messages[2]}}</h5>
-            <h3>{{ctrl.gameWinner}}</h3>
-        </form>
-      </div>
-      <div class="game" ng-show="ctrl.isSet(2)">
-        <form >
-          <select type="text" ng-model="item" class="btn btn-default dropdown-toggle">
-            <option value="rock">rock</option>
-            <option value="paper">paper</option>
-            <option value="scissors">scissors</option>
-            <option value="lizard">lizard</option>
-            <option value="spock">spock</option>
-          </select>
-          <button class="btn btn-info" ng-click="ctrl.tacticalComputerVsPlayerResults(item)">Play</button>
-           <button id="play-again" class="btn btn-info" ng-click="ctrl.resetGame()">Start New Game</button><br>
-            <h4>Your choice: {{item}}</h4>
-            <h4>Computer choice: {{ctrl.computerChoice}}</h4>
-            <h5>{{ctrl.messages[0]}}</h5>
-            <h5>{{ctrl.messages[1]}}</h5>
-            <h5>{{ctrl.messages[2]}}</h5>
-            <h3>{{ctrl.gameWinner}}</h3>
-        </form>
-      </div>
-    </section>
-    </div>
     </div>
   </body>
 </html>
