@@ -3,8 +3,6 @@ describe('Game Factory', function(){
 	var playerChoice;
 	var computerChoice;
 	var choices;
-	var turns;
-	var winTurns;
 	var shapes;
 	var tacticalShapes
 
@@ -94,6 +92,12 @@ describe('Game Factory', function(){
   	GameFactory.computerRandomChoice()
   	GameFactory.playerChooses('rock')
   	expect(GameFactory.tacticalComputerChoice()).toEqual('rock');
+  });
+
+  it('allow human player to win the game', function(){
+  	spyOn(GameFactory, 'turns').and.returnValue(0)
+  	spyOn(GameFactory, 'winTurns').and.returnValue(2)
+  	expect(GameFactory.winner()).toEqual("Congratulations, you've won the game.")
   });
 
 });

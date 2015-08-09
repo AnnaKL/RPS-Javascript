@@ -1,21 +1,21 @@
 angular.module('rps.factory', [])
 
- .factory('GameFactory',function() {
- 	var playerChoice = '';
- 	var computerChoice = '';
- 	var choices = ['paper', 'rock', 'scissors']
- 	var turns = 3;
- 	var winTurns = 0;
- 	var shapes = {
-    paper: ['rock'],
-    rock: ['scissors'],
-    scissors: ['paper']
-  }
+.factory('GameFactory',function() {
+	var playerChoice = '';
+	var computerChoice = '';
+	var choices = ['paper', 'rock', 'scissors']
+	var turns = 3;
+	var winTurns = 0;
+	var shapes = {
+  paper: ['rock'],
+  rock: ['scissors'],
+  scissors: ['paper']
+}
   var tacticalShapes = {
-    paper: ['scissors'],
-    rock: ['paper'],
-    scissors: ['rock']
-   }
+  paper: ['scissors'],
+  rock: ['paper'],
+  scissors: ['rock']
+ }
 
 
     
@@ -60,11 +60,17 @@ angular.module('rps.factory', [])
 	      }
 	    }
 	  },
+	  turns: function() {
+	  	return turns;
+	  },
+	  winTurns: function() {
+	  	return winTurns;
+	  },
 	  winner: function() {
-	    if(turns === 0) {
-	      if(winTurns > 1.5) {return "Congratulations, you've won the game."}
-	      if(winTurns === 1.5) {return "Game results: It's a tie"}
-	      if(winTurns < 1.5) {return "Ops, you've lost the game."}
+	    if(this.turns() === 0) {
+	      if(this.winTurns() > 1.5) {return "Congratulations, you've won the game."}
+	      if(this.winTurns() === 1.5) {return "Game results: It's a tie"}
+	      if(this.winTurns() < 1.5) {return "Ops, you've lost the game."}
 	    }
 	  }
 	};

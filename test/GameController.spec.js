@@ -12,24 +12,24 @@ describe('Game Controller', function(){
 	 }));
 
 
-  it("should have a Game Factory defined", function() {
-    expect(GameFactoryMock).toBeDefined();
-	});
+ //  it("should have a Game Factory defined", function() {
+ //    expect(GameFactoryMock).toBeDefined();
+	// });
 
-	it('can set a tab to particular number', function(){
-    control.setTab(1);
-    expect(control.tab).toEqual(1);
-  });
+	// it('can set a tab to particular number', function(){
+ //    control.setTab(1);
+ //    expect(control.tab).toEqual(1);
+ //  });
 
-  it('return true if tab is set to particular number', function(){
-    control.setTab(1);
-    expect(control.isSet(1)).toEqual(true);
-  });
+ //  it('return true if tab is set to particular number', function(){
+ //    control.setTab(1);
+ //    expect(control.isSet(1)).toEqual(true);
+ //  });
 
-  it('return false if tab is not set to particular number', function(){
-    control.setTab(2);
-    expect(control.isSet(1)).toEqual(false);
-  });
+ //  it('return false if tab is not set to particular number', function(){
+ //    control.setTab(2);
+ //    expect(control.isSet(1)).toEqual(false);
+ //  });
 
 
 
