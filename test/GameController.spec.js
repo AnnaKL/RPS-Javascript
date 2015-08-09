@@ -7,7 +7,7 @@ describe('Game Controller', function(){
 	}));
 
 	beforeEach(inject(function($controller){
-    	GameFactoryMock = jasmine.createSpyObj('GameFactory', ['playerChooses', 'computerRandomChoice', 'tacticalComputerChoice', 'humanVersusComputer'])
+    	GameFactoryMock = jasmine.createSpyObj('GameFactory', ['playerChooses', 'computerRandomChoice', 'tacticalComputerChoice', 'humanVersusComputer', 'humanVersusHuman', 'winner', 'playersWinner'])
 		  control = $controller('GameController', {GameFactory: GameFactoryMock});
 	 }));
 

@@ -126,4 +126,11 @@ describe('Game Factory', function(){
   	expect(GameFactory.winner()).toEqual("Game results: It's a tie.")
   });
 
+  it('allow player 1 to win a round', function(){
+  	GameFactory.playerChooses('rock');
+  	GameFactory.playerChooses('scissors');
+  	expect(GameFactory.humanVersusHuman('rock', 'scissors')).toEqual("Player 1 won this round.")
+
+  });
+
 });
