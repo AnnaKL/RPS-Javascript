@@ -38,8 +38,14 @@ Further improvements could include:
 
 ##To run the app:
 
-
+```
+git clone git@github.com:AnnaKL/RPS-Javascript.git
+cd RPS-Javascript
+open index.html
+```
 
 ##To run the tests:
 
-
+```
+karma start test/karma.conf.js
+```
