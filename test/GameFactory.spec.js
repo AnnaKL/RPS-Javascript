@@ -138,4 +138,10 @@ describe('Game Factory', function(){
   	expect(GameFactory.humanVersusHuman('scissors', 'rock')).toEqual("Player 2 won this round.")
   });
 
+  it('allow round results to be a tie between players', function(){
+  	GameFactory.playerChooses('rock');
+  	GameFactory.playerChooses('rock');
+  	expect(GameFactory.humanVersusHuman('rock', 'rock')).toEqual("It's a tie.")
+  });
+
 });
