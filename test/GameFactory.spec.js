@@ -144,4 +144,10 @@ describe('Game Factory', function(){
   	expect(GameFactory.humanVersusHuman('rock', 'rock')).toEqual("It's a tie.")
   });
 
+  it('allow human player 1 to win the game', function(){
+  	spyOn(GameFactory, 'turns').and.returnValue(0)
+  	spyOn(GameFactory, 'winTurns').and.returnValue(2)
+  	expect(GameFactory.playersWinner()).toEqual("Congratulations, Player 1 won the game.")
+  });
+
 });
