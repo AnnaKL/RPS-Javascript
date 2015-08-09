@@ -8,7 +8,7 @@
     "prestart": "npm install",
     "pretest": "npm install",
     "test": "karma start ./tests/karma.conf.js",
-    "test-single-run": "karma start ./tests/karma.conf.js  --single-run",
+    "test-single-run": "karma start ./tests/karma.conf.js  --single-run"
     },
   "author": "",
   "license": "ISC",

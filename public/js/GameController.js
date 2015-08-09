@@ -37,12 +37,12 @@ angular.module('rps.controller', [])
 
 
 
-  self.setTab = function(selectedTab) {
-    self.tab = selectedTab;
-  };
+    self.setTab = function(selectedTab) {
+	    self.tab = selectedTab;
+    };
 
-  self.isSet = function(number) {
-    return self.tab === number;
-  };
+    self.isSet = function(number) {
+    	return self.tab === number;
+    };
 
 }]);

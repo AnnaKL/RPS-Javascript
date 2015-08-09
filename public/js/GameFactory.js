@@ -13,7 +13,7 @@ angular.module('rps.factory', [])
 			spock: ['rock', 'scissors'],
 			lizard: ['paper', 'spock']
       }
-  var tacticalShapes = {
+    var tacticalShapes = {
 			paper: ['scissors', 'lizard'],
 			rock: ['paper', 'spock'],
 			scissors: ['rock', 'spock'],
@@ -37,7 +37,7 @@ angular.module('rps.factory', [])
         if (randomNumber <= 1) {return computerChoice = choices[4]}
       }
   	},
-	  tacticalComputerChoice: function() {
+	tacticalComputerChoice: function() {
       for(var item in tacticalShapes) {
         if(computerChoice === item) {
         	var randomNumber = Math.random();
@@ -48,7 +48,7 @@ angular.module('rps.factory', [])
         }
       }
     },
-	  humanVersusComputer: function() {
+	humanVersusComputer: function() {
 	    if(turns !=0) {
 	      for(var key in shapes) {
 	        if(playerChoice == key) {
@@ -68,7 +68,7 @@ angular.module('rps.factory', [])
 	      }
 	    }
 	  },
-	  humanVersusHuman: function(choice1, choice2) {
+	humanVersusHuman: function(choice1, choice2) {
 	  	if(turns !=0) {
 	  		for(var key in shapes) {
 	  		if(choice1 ==key) {
@@ -88,20 +88,20 @@ angular.module('rps.factory', [])
 	      }
 	    }
 	  },
-	  turns: function() {
+	turns: function() {
 	  	return turns;
-	  },
-	  winTurns: function() {
+	},
+	winTurns: function() {
 	  	return winTurns;
-	  },
-	  winner: function() {
+	},
+	winner: function() {
 	    if(this.turns() === 0) {
 	      if(this.winTurns() > 1.5) {return "Congratulations, you've won the game."}
 	      if(this.winTurns() === 1.5) {return "Game results: It's a tie."}
 	      if(this.winTurns() < 1.5) {return "Ops, you've lost the game."}
 	    }
-	  },
-	  playersWinner: function() {
+	},
+	playersWinner: function() {
 	    if(this.turns() === 0) {
 	      if(this.winTurns() > 1.5) {return "Congratulations, Player 1 won the game."}
 	      if(this.winTurns() === 1.5) {return "Game results: It's a tie."}
@@ -109,6 +109,4 @@ angular.module('rps.factory', [])
 	    }
 	  }
 	};
-
-
- });
+  });
