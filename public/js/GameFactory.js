@@ -69,7 +69,7 @@ angular.module('rps.factory', [])
 	  winner: function() {
 	    if(this.turns() === 0) {
 	      if(this.winTurns() > 1.5) {return "Congratulations, you've won the game."}
-	      if(this.winTurns() === 1.5) {return "Game results: It's a tie"}
+	      if(this.winTurns() === 1.5) {return "Game results: It's a tie."}
 	      if(this.winTurns() < 1.5) {return "Ops, you've lost the game."}
 	    }
 	  }

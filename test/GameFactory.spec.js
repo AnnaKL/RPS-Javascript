@@ -106,4 +106,10 @@ describe('Game Factory', function(){
   	expect(GameFactory.winner()).toEqual("Ops, you've lost the game.")
   });
 
+  it('allow a tie as a result of a game', function(){
+  	spyOn(GameFactory, 'turns').and.returnValue(0)
+  	spyOn(GameFactory, 'winTurns').and.returnValue(1.5)
+  	expect(GameFactory.winner()).toEqual("Game results: It's a tie.")
+  });
+
 });
