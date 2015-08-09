@@ -26,28 +26,28 @@ angular.module('rps.factory', [])
   return {
   	playerChooses: function(choice) {
   		return playerChoice = choice;
-  	},
+  	 },
   	computerRandomChoice: function() {
-      var randomNumber = Math.random();
-      if(turns !=0) {
-        if(randomNumber <= 0.2) {return computerChoice = choices[0]}
-        if (randomNumber <= 0.4) {return computerChoice = choices[1]}
-        if (randomNumber <= 0.6) {return computerChoice = choices[2]}
-        if (randomNumber <= 0.8) {return computerChoice = choices[3]}
-        if (randomNumber <= 1) {return computerChoice = choices[4]}
-      }
-  	},
+        var randomNumber = Math.random();
+        if(turns !=0) {
+          if(randomNumber <= 0.2) {return computerChoice = choices[0]}
+          if (randomNumber <= 0.4) {return computerChoice = choices[1]}
+          if (randomNumber <= 0.6) {return computerChoice = choices[2]}
+          if (randomNumber <= 0.8) {return computerChoice = choices[3]}
+          if (randomNumber <= 1) {return computerChoice = choices[4]}
+        }
+  	 },
 	tacticalComputerChoice: function() {
-      for(var item in tacticalShapes) {
-        if(computerChoice === item) {
+        for(var item in tacticalShapes) {
+          if(computerChoice === item) {
         	var randomNumber = Math.random();
         	if(randomNumber <= 0.5) {return computerChoice = tacticalShapes[item][0]}
-          if(randomNumber <= 1) {return computerChoice = tacticalShapes[item][1]}
-        } else if (computerChoice === ''){ 
-          return this.computerRandomChoice();
-        }
-      }
-    },
+            if(randomNumber <= 1) {return computerChoice = tacticalShapes[item][1]}
+          } else if (computerChoice === ''){ 
+             return this.computerRandomChoice();
+         }
+       }
+     },
 	humanVersusComputer: function() {
 	    if(turns !=0) {
 	      for(var key in shapes) {
@@ -90,17 +90,17 @@ angular.module('rps.factory', [])
 	  },
 	turns: function() {
 	  	return turns;
-	},
+	 },
 	winTurns: function() {
 	  	return winTurns;
-	},
+	 },
 	winner: function() {
 	    if(this.turns() === 0) {
 	      if(this.winTurns() > 1.5) {return "Congratulations, you've won the game."}
 	      if(this.winTurns() === 1.5) {return "Game results: It's a tie."}
 	      if(this.winTurns() < 1.5) {return "Ops, you've lost the game."}
 	    }
-	},
+	 },
 	playersWinner: function() {
 	    if(this.turns() === 0) {
 	      if(this.winTurns() > 1.5) {return "Congratulations, Player 1 won the game."}
@@ -108,5 +108,5 @@ angular.module('rps.factory', [])
 	      if(this.winTurns() < 1.5) {return "Congratulations, Player 2 won the game."}
 	    }
 	  }
-	};
+	 };
   });
