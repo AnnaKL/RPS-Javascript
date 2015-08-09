@@ -7,12 +7,12 @@ describe('Game Controller', function(){
 	}));
 
 	beforeEach(inject(function($controller){
-    	GameFactoryMock = jasmine.createSpyObj('GameFactory', ['playerChooses', 'computerRandomChoice', 'tacticalComputerChoice', 'humanVersusComputer', 'winner'])
+    	GameFactoryMock = jasmine.createSpyObj('GameFactory', ['playerChooses', 'computerRandomChoice', 'tacticalComputerChoice', 'humanVersusComputer'])
 		  control = $controller('GameController', {GameFactory: GameFactoryMock});
 	 }));
 
 
-  it("should have a Game Factory defined", function() {
+  it('should have a Game Factory defined', function() {
     expect(GameFactoryMock).toBeDefined();
 	});
 

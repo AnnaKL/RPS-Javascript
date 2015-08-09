@@ -19,25 +19,37 @@
       <button class="btn" ng-click="ctrl.setTab(2)">Play with Tactical Computer</button>
       <div ng-show="ctrl.isSet(1)">
         <form>
-          <input type="text" ng-model="item" placeholder="Choose you shape">
-          <button class="clear" ng-touch="item=null" ng-click="ctrl.computerVsPlayerResults(item)">Play</button>
-          Computer choice is: {{ctrl.computerChoice}}<br>
-          Frist round:  {{ctrl.messages[0]}}<br>
-          Second round: {{ctrl.messages[1]}}<br>
-          Third round:  {{ctrl.messages[2]}}<br><br>
-          {{ctrl.gameWinner}}<br>
+          <select type="text" ng-model="item" class="input-large input-large-altered">
+            <option value="rock">rock</option>
+            <option value="paper">paper</option>
+            <option value="scissors">scissors</option>
+            <option value="lizard">lizard</option>
+            <option value="spock">spock</option>
+          </select>
+          <button class="clear" ng-click="ctrl.computerVsPlayerResults(item)">Play</button>
+            Computer choice is: {{ctrl.computerChoice}}<br>
+            Frist round:  {{ctrl.messages[0]}}<br>
+            Second round: {{ctrl.messages[1]}}<br>
+            Third round:  {{ctrl.messages[2]}}<br><br>
+            {{ctrl.gameWinner}}<br>
           <button class="btn" ng-click="ctrl.resetGame()">Play again</button>
         </form>
       </div>
       <div ng-show="ctrl.isSet(2)">
         <form >
-          <input type="text" ng-model="item" placeholder="Choose you shape">
+          <select type="text" ng-model="item" class="input-large input-large-altered">
+            <option value="rock">rock</option>
+            <option value="paper">paper</option>
+            <option value="scissors">scissors</option>
+            <option value="lizard">lizard</option>
+            <option value="spock">spock</option>
+          </select>
           <button class="btn" ng-click="ctrl.tacticalComputerVsPlayerResults(item)">Play</button>
-          Computer choice is: {{ctrl.computerChoice}}<br>
-          Frist round:  {{ctrl.messages[0]}}<br>
-          Second round: {{ctrl.messages[1]}}<br>
-          Third round:  {{ctrl.messages[2]}}<br><br>
-          {{ctrl.gameWinner}}<br>
+            Computer choice is: {{ctrl.computerChoice}}<br>
+            Frist round:  {{ctrl.messages[0]}}<br>
+            Second round: {{ctrl.messages[1]}}<br>
+            Third round:  {{ctrl.messages[2]}}<br><br>
+            {{ctrl.gameWinner}}<br>
           <button class="btn" ng-click="ctrl.resetGame()">Play again</button>
         </form>
       </div>
