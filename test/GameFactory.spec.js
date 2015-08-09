@@ -53,6 +53,16 @@ describe('Game Factory', function(){
 		expect(GameFactory.computerRandomChoice()).toEqual('scissors')
 	});
 
+	it('allow computer to choose lizard', function(){
+		spyOn(Math, 'random').and.returnValue(0.8)
+		expect(GameFactory.computerRandomChoice()).toEqual('lizard')
+	});
+
+	it('allow computer to choose spock', function(){
+		spyOn(Math, 'random').and.returnValue(1)
+		expect(GameFactory.computerRandomChoice()).toEqual('spock')
+	});
+
 	it('allow human player to win a round', function(){
 		GameFactory.playerChooses('rock')
 		spyOn(Math, 'random').and.returnValue(0.6)
