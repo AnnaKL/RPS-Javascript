@@ -44,7 +44,6 @@ Further improvements could include:
 git clone git@github.com:AnnaKL/RPS-Javascript.git
 cd RPS-Javascript
 npm install
-bower install
 open index.html
 ```
 
