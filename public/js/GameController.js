@@ -12,7 +12,6 @@ angular.module('rps.controller', [])
 	  self.computerChoice = GameFactory.computerRandomChoice();
 	  self.messages.push(GameFactory.humanVersusComputer());
 	  self.gameWinner = GameFactory.winner();
-
 	};
 
 	self.tacticalComputerVsPlayerResults = function(item) {
@@ -20,7 +19,6 @@ angular.module('rps.controller', [])
 	  self.computerChoice = GameFactory.tacticalComputerChoice();
 	  self.messages.push(GameFactory.humanVersusComputer());
 	  self.gameWinner = GameFactory.winner();
-
 	};
 
 	self.playerVsPlayerResults = function(item1, item2) {
@@ -28,7 +26,6 @@ angular.module('rps.controller', [])
 	  GameFactory.playerChooses(item2);
 	  self.messages.push(GameFactory.humanVersusHuman(item1, item2));
 	  self.gameWinner = GameFactory.playersWinner();
-
 	};
 
 	self.resetGame = function() {
@@ -37,12 +34,12 @@ angular.module('rps.controller', [])
 
 
 
-    self.setTab = function(selectedTab) {
+        self.setTab = function(selectedTab) {
 	    self.tab = selectedTab;
-    };
+        };
 
-    self.isSet = function(number) {
-    	return self.tab === number;
-    };
+        self.isSet = function(number) {
+    	  return self.tab === number;
+        };
 
-}]);
+  }]);
