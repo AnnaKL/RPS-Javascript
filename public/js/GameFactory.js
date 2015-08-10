@@ -37,18 +37,18 @@ angular.module('rps.factory', [])
           if (randomNumber <= 1) {return computerChoice = choices[4]}
         }
   	 },
-	tacticalComputerChoice: function() {
+	  tacticalComputerChoice: function() {
         for(var item in tacticalMoves) {
           if(computerChoice === item) {
         	var randomNumber = Math.random();
         	if(randomNumber <= 0.5) {return computerChoice = tacticalMoves[item][0]}
             if(randomNumber <= 1) {return computerChoice = tacticalMoves[item][1]}
           } else if (computerChoice === ''){ 
-             return this.computerRandomChoice();
+            return this.computerRandomChoice();
          }
        }
      },
-	humanVersusComputer: function() {
+	  humanVersusComputer: function() {
 	    if(rounds !=0) {
 	      for(var key in moves) {
 	        if(playerChoice == key) {
@@ -68,40 +68,40 @@ angular.module('rps.factory', [])
 	      }
 	    }
 	  },
-	humanVersusHuman: function(choice1, choice2) {
+	  humanVersusHuman: function(choice1, choice2) {
 	  	if(rounds !=0) {
 	  	  for(var key in moves) {
-	  		if(choice1 ==key) {
-	  		  if(choice2 == moves[key][0] || choice2 == moves[key][1]) {
-	  			rounds -=1;
-	  			points +=1;
-		        return "Player 1 won this round."
-		  	   } else if (choice1 == choice2) {
-		        rounds -=1
-		        points +=0.5;
-		        return "It's a tie."
-		       } else {
-		        points -=1;
-		        return "Player 2 won this round."
+  	  		if(choice1 ==key) {
+  	  		  if(choice2 == moves[key][0] || choice2 == moves[key][1]) {
+  	  			rounds -=1;
+  	  			points +=1;
+  		        return "Player 1 won this round."
+  		  	   } else if (choice1 == choice2) {
+  		        rounds -=1
+  		        points +=0.5;
+  		        return "It's a tie."
+  		       } else {
+  		        points -=1;
+  		        return "Player 2 won this round."
 	          }
 	        }
 	      }
 	    }
 	  },
-	rounds: function() {
+	  rounds: function() {
 	  	return rounds;
-	 },
-	score: function() {
+	  },
+	  score: function() {
 	  	return points;
-	 },
-	winner: function() {
+	  },
+	  winner: function() {
 	    if(this.rounds() === 0) {
 	      if(this.score() > 1.5) {return "Congratulations, you've won the game."}
 	      if(this.score() === 1.5) {return "Game results: It's a tie."}
 	      if(this.score() < 1.5) {return "Ops, you've lost the game."}
 	    }
-	 },
-	playersWinner: function() {
+	  },
+	  playersWinner: function() {
 	    if(this.rounds() === 0) {
 	      if(this.score() > 1.5) {return "Congratulations, Player 1 won the game."}
 	      if(this.score() === 1.5) {return "Game results: It's a tie."}
