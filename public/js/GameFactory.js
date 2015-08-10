@@ -12,43 +12,43 @@ angular.module('rps.factory', [])
 			scissors: ['paper', 'lizard'],
 			spock: ['rock', 'scissors'],
 			lizard: ['paper', 'spock']
-      }
-    var tacticalMoves = {
+                   }
+       var tacticalMoves = {
 			paper: ['scissors', 'lizard'],
 			rock: ['paper', 'spock'],
 			scissors: ['rock', 'spock'],
 			spock: ['paper', 'lizard'],
 			lizard: ['rock', 'scissors']
-      }
+                   }
 
 
     
   return {
   	playerChooses: function(choice) {
-  		return playerChoice = choice;
+  	   return playerChoice = choice;
   	 },
   	computerRandomChoice: function() {
-        var randomNumber = Math.random();
-        if(rounds !=0) {
-          if(randomNumber <= 0.2) {return computerChoice = choices[0]}
-          if (randomNumber <= 0.4) {return computerChoice = choices[1]}
-          if (randomNumber <= 0.6) {return computerChoice = choices[2]}
-          if (randomNumber <= 0.8) {return computerChoice = choices[3]}
-          if (randomNumber <= 1) {return computerChoice = choices[4]}
-        }
+          var randomNumber = Math.random();
+            if(rounds !=0) {
+              if(randomNumber <= 0.2) {return computerChoice = choices[0]}
+              if (randomNumber <= 0.4) {return computerChoice = choices[1]}
+              if (randomNumber <= 0.6) {return computerChoice = choices[2]}
+              if (randomNumber <= 0.8) {return computerChoice = choices[3]}
+              if (randomNumber <= 1) {return computerChoice = choices[4]}
+            }
   	 },
-	  tacticalComputerChoice: function() {
-        for(var item in tacticalMoves) {
-          if(computerChoice === item) {
+	tacticalComputerChoice: function() {
+           for(var item in tacticalMoves) {
+             if(computerChoice === item) {
         	var randomNumber = Math.random();
         	if(randomNumber <= 0.5) {return computerChoice = tacticalMoves[item][0]}
-            if(randomNumber <= 1) {return computerChoice = tacticalMoves[item][1]}
-          } else if (computerChoice === ''){ 
-            return this.computerRandomChoice();
+                if(randomNumber <= 1) {return computerChoice = tacticalMoves[item][1]}
+            } else if (computerChoice === ''){ 
+               return this.computerRandomChoice();
+           }
          }
-       }
-     },
-	  humanVersusComputer: function() {
+        },
+	humanVersusComputer: function() {
 	    if(rounds !=0) {
 	      for(var key in moves) {
 	        if(playerChoice == key) {
@@ -69,30 +69,30 @@ angular.module('rps.factory', [])
 	    }
 	  },
 	  humanVersusHuman: function(choice1, choice2) {
-	  	if(rounds !=0) {
-	  	  for(var key in moves) {
-  	  		if(choice1 ==key) {
-  	  		  if(choice2 == moves[key][0] || choice2 == moves[key][1]) {
-  	  			rounds -=1;
-  	  			points +=1;
-  		        return "Player 1 won this round."
-  		  	   } else if (choice1 == choice2) {
-  		        rounds -=1
-  		        points +=0.5;
+	      if(rounds !=0) {
+	  	 for(var key in moves) {
+  	  	    if(choice1 ==key) {
+  	  	      if(choice2 == moves[key][0] || choice2 == moves[key][1]) {
+  	  		 rounds -=1;
+  	  		 points +=1;
+  		         return "Player 1 won this round."
+  		       } else if (choice1 == choice2) {
+  		         rounds -=1
+  		         points +=0.5;
   		        return "It's a tie."
   		       } else {
-  		        points -=1;
-  		        return "Player 2 won this round."
-	          }
-	        }
+  		         points -=1;
+  		         return "Player 2 won this round."
+	              }
+	            }
+	         }
 	      }
-	    }
-	  },
+	   },
 	  rounds: function() {
-	  	return rounds;
+	    return rounds;
 	  },
 	  score: function() {
-	  	return points;
+	    return points;
 	  },
 	  winner: function() {
 	    if(this.rounds() === 0) {
@@ -109,4 +109,4 @@ angular.module('rps.factory', [])
 	    }
 	  }
 	 };
-  });
+    });
