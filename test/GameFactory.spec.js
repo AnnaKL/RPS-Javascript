@@ -109,20 +109,20 @@ describe('Game Factory', function(){
   });
 
   it('allow human player to win the game', function(){
-  	spyOn(GameFactory, 'turns').and.returnValue(0)
-  	spyOn(GameFactory, 'winTurns').and.returnValue(2)
+  	spyOn(GameFactory, 'rounds').and.returnValue(0)
+  	spyOn(GameFactory, 'score').and.returnValue(2)
   	expect(GameFactory.winner()).toEqual("Congratulations, you've won the game.")
   });
 
   it('allow human player to loose the game', function(){
-  	spyOn(GameFactory, 'turns').and.returnValue(0)
-  	spyOn(GameFactory, 'winTurns').and.returnValue(1)
+  	spyOn(GameFactory, 'rounds').and.returnValue(0)
+  	spyOn(GameFactory, 'score').and.returnValue(1)
   	expect(GameFactory.winner()).toEqual("Ops, you've lost the game.")
   });
 
   it('allow a tie as a result of a game', function(){
-  	spyOn(GameFactory, 'turns').and.returnValue(0)
-  	spyOn(GameFactory, 'winTurns').and.returnValue(1.5)
+  	spyOn(GameFactory, 'rounds').and.returnValue(0)
+  	spyOn(GameFactory, 'score').and.returnValue(1.5)
   	expect(GameFactory.winner()).toEqual("Game results: It's a tie.")
   });
 
@@ -145,20 +145,20 @@ describe('Game Factory', function(){
   });
 
   it('allow human player 1 to win the game', function(){
-  	spyOn(GameFactory, 'turns').and.returnValue(0)
-  	spyOn(GameFactory, 'winTurns').and.returnValue(2)
+  	spyOn(GameFactory, 'rounds').and.returnValue(0)
+  	spyOn(GameFactory, 'score').and.returnValue(2)
   	expect(GameFactory.playersWinner()).toEqual("Congratulations, Player 1 won the game.")
   });
 
   it('allow human player 2 to win the game', function(){
-  	spyOn(GameFactory, 'turns').and.returnValue(0)
-  	spyOn(GameFactory, 'winTurns').and.returnValue(1)
+  	spyOn(GameFactory, 'rounds').and.returnValue(0)
+  	spyOn(GameFactory, 'score').and.returnValue(1)
   	expect(GameFactory.playersWinner()).toEqual("Congratulations, Player 2 won the game.")
   });
 
   it('allow a tie as a result of a game between to human players', function(){
-  	spyOn(GameFactory, 'turns').and.returnValue(0)
-  	spyOn(GameFactory, 'winTurns').and.returnValue(1.5)
+  	spyOn(GameFactory, 'rounds').and.returnValue(0)
+  	spyOn(GameFactory, 'score').and.returnValue(1.5)
   	expect(GameFactory.playersWinner()).toEqual("Game results: It's a tie.")
   });
 
