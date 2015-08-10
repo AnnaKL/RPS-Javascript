@@ -19,10 +19,10 @@ angular.module('rps.factory', [])
 			scissors: ['rock', 'spock'],
 			spock: ['paper', 'lizard'],
 			lizard: ['rock', 'scissors']
-      }
+                   }
 
 
-    
+
 	return {
 		playerChooses: function(choice) {
 			return playerChoice = choice;
